@@ -2,6 +2,11 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
+'''
+    Write  a computer program capable of reducing the number of intensity levels  in an image from 256 to 2, in integer
+    powers of 2. The desired number of  intensity levels needs to be a variable input to your program.
+'''
+
 
 def intensity_levels(image: np.ndarray , n_levels: int) :
     assert np.log2(n_levels).is_integer() , '`n_levels` must be power of 2'

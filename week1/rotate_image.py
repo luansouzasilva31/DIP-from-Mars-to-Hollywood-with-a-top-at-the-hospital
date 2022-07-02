@@ -3,6 +3,10 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
+'''
+    Rotate the image by 45 and 90 degrees (Matlab provides simple command lines for doing this).
+'''
+
 
 def rotate(array: np.ndarray , degree: float , option: str = 'same') :
     # Convert from degre to radian
@@ -49,7 +53,7 @@ def rotate(array: np.ndarray , degree: float , option: str = 'same') :
             rpoint = np.round(rpoint).astype(int) + imid
             rpoint = rpoint.reshape(-1)
             
-            if (oshape > rpoint).all() and (rpoint >= 0).all() and (rpoint < ishape).all():
+            if (oshape > rpoint).all() and (rpoint >= 0).all() and (rpoint < ishape).all() :
                 rot[point[0] , point[1] , :] = array[rpoint[0] , rpoint[1] , :]
     
     return rot
@@ -60,7 +64,7 @@ def main() :
     array = cv2.imread(path)
     
     degree = 45
-    rot = rotate(array , degree=degree, option='same')
+    rot = rotate(array , degree=degree , option='same')
     
     fig , axis = plt.subplots(2 , 1)
     axis[0].imshow(array[: , : , : :-1])
